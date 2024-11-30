@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Molecular Viewer</title>
+    <script src="https://3Dmol.csb.pitt.edu/build/3Dmol-min.js"></script>
+</head>
+<body>
+
+    <h1>Interactive 3D Molecular Viewer: Salicylic Acid</h1>
+
+    <!-- Container for the 3D Viewer -->
+    <div id="viewer" style="width: 800px; height: 600px; margin: auto;"></div>
+
+    <script>
+        // Create a viewer object inside the 'viewer' div
+        let viewer = $3Dmol.createViewer("viewer", { backgroundColor: "white" });
+
+        // Load the SDF file (replace the URL with the link to your file)
+        const sdfUrl = 'https://raw.githubusercontent.com/yadiramelissa/molecular-viewer/refs/heads/main/salicylic_acid_Conformer3D_COMPOUND_CID_338.sdf';
+
+        // Fetch the SDF file and add it to the viewer
+        fetch(sdfUrl)
+            .then(response => response.text())
+            .then(sdfData => {
+                viewer.addModel(sdfData, "sdf"); // Add the molecule from the SDF format
+                viewer.setStyle({}, { stick: {} }); // Set the style (e.g., stick model)
+                viewer.zoomTo(); // Zoom to fit the molecule
+                viewer.render(); // Render the molecule
+            })
+            .catch(error => console.error('Error loading SDF file:', error));
+    </script>
+
+</body>
+</html>
