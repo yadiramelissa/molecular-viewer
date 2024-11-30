@@ -9,7 +9,7 @@
     <style>
     /* Set the body background to transparent */
     body {
-        background: transparent !important;
+        background: none !important;
         margin: 0;
         padding: 0;
     }
@@ -18,7 +18,7 @@
     #viewer {
         width: 100%;
         height: 600px;
-        background-color: transparent !important;
+        background-color: none !important;
     }
     </style>
 </head>
@@ -31,7 +31,7 @@
 
     <script>
         // Create a viewer object inside the 'viewer' div
-        let viewer = $3Dmol.createViewer("viewer", { backgroundColor: "transparent" });
+        let viewer = $3Dmol.createViewer("viewer", { backgroundColor: "none" });
 
         // Load the SDF file (replace the URL with the link to your file)
         const sdfUrl = 'https://raw.githubusercontent.com/yadiramelissa/molecular-viewer/refs/heads/main/salicylic_acid_Conformer3D_COMPOUND_CID_338.sdf';
